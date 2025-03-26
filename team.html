@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+    <link rel="shortcut icon" href="assets/images/burgericon.png" type="image/png">
+        
+    <!--====== Animate CSS ======-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+        
+    <!--====== Slick CSS ======-->
+    <link rel="stylesheet" href="assets/css/slick.css">
+        
+    <!--====== Line Icons CSS ======-->
+    <link rel="stylesheet" href="assets/css/LineIcons.css">
+        
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="assets/css/default.css">
+    
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <section id="staff" class="staff_area">
+        <div class="staff_info pt-120 pb-130">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section_title text-center pb-30">
+                            <h4 class="title">Meet Our Team</h4>
+                            <span class="line">
+                                <span class="box"></span>
+                            </span>
+                        </div> 
+                    </div>
+                </div>
+    
+                <!-- Single Image Container -->
+                <div class="image-container text-center">
+                    <img id="staffImage" src="assets/images/staff1 (2).jpg" alt="Kimberlyn Amores">
+                    <h5 id="staffName" class="name">Kimberlyn Amores</h5>
+                    <p id="staffPosition" class="position">Counter</p>
+                    <p id="staffDescription" class="description">
+                        With over 15 years of experience, Kim specializes in crafting artisanal bread and pastries, ensuring every bite is a delight.
+                    </p>
+                </div>
+    
+                <!-- Circular Next Button -->
+                <div class="text-center mt-3">
+                    <button id="nextSlide" class="next-button">&#10095;</button>
+                </div>
+            </div>
+        </div> 
+    </section>
+    
+    
+    
+<style>
+ .image-container {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.next-button {
+    background-color: #ff9800;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #e68900;
+}
+h4.title {
+    color: white;
+}
+.staff_area {
+    position: relative;
+    background-image: url('assets/images/background1.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding: 100px 0; /* Adds spacing */
+    color: white; /* Adjust text color for readability */
+    opacity: 1.5;
+}
+
+.staff_info {
+    position: relative;
+    z-index: 2;
+}
+
+/* Add a dark overlay for better text visibility */
+.staff_area::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+
+</style>    
+
+
+    
+<script>
+   
+    document.addEventListener("DOMContentLoaded", function () {
+        // Staff Data
+        const staff = [
+            {
+                img: "assets/images/staff1 (2).jpg",
+                name: "Kimberlyn Amores",
+                position: "Counter",
+                description: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, aliquam odit! Necessitatibus nulla debitis ipsa temporibus, voluptates possimus officiis rerum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, aliquam odit! Necessitatibus nulla debitis ipsa temporibus, voluptates possimus officiis rerum!"
+            },
+            {
+                img: "assets/images/team2.jpg",
+                name: "Josh Smith",
+                position: "Chef",
+                description: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, aliquam odit! Necessitatibus nulla debitis ipsa temporibus, voluptates possimus officiis rerum!"
+            },
+            {
+                img: "assets/images/team3.jpg",
+                name: "Emily Johnson",
+                position: "Delivery",
+                description: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, aliquam odit! Necessitatibus nulla debitis ipsa temporibus, voluptates possimus officiis rerum!"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        // Elements
+        const staffImage = document.getElementById("staffImage");
+        const staffName = document.getElementById("staffName");
+        const staffPosition = document.getElementById("staffPosition");
+        const staffDescription = document.getElementById("staffDescription");
+        const nextButton = document.getElementById("nextSlide");
+
+        // Function to change image
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % staff.length; // Loop back to start
+            staffImage.style.opacity = 0;
+
+            setTimeout(() => {
+                staffImage.src = staff[currentIndex].img;
+                staffName.textContent = staff[currentIndex].name;
+                staffPosition.textContent = staff[currentIndex].position;
+                staffDescription.textContent = staff[currentIndex].description;
+                staffImage.style.opacity = 1;
+            }, 300); // Delay for fade effect
+        }
+
+        // Event Listener
+        nextButton.addEventListener("click", nextImage);
+    });
+</script>
+
+
+
+
+
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/scrolling-nav.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

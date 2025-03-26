@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Receipt - Edi Wow Burgers</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<style>
+body {
+    background-color: #f8f9fa;
+}
+.receipt-container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.receipt-header {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.receipt-table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.total-section {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+}
+</style>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Food Receipt</h2>
+        <div class="card p-4">
+            <h4>Order Details</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="receiptItems">
+                    <!-- Order items will be inserted dynamically -->
+                </tbody>
+            </table>
+            <h5 class="text-right">Total: <span id="receiptTotal">₱0.00</span></h5>
+        </div>
+        <div class="card p-4 mt-3">
+            <h4>Delivery Information</h4>
+            <form id="deliveryForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Delivery Address</label>
+                    <textarea id="address" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Contact Number</label>
+                    <input type="text" id="phone" class="form-control" required>
+                </div>
+                <a href="thankyou.html" class="btn btn-secondary w-100 mt-2">Confirm Order</a>
+                <a href="menu.html" class="btn btn-secondary w-100 mt-2">Back to Menu</a>
+            </form>
+        </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const receiptItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const receiptTable = document.getElementById("receiptItems");
+            const receiptTotal = document.getElementById("receiptTotal");
+            let totalAmount = 0;
+
+            receiptItems.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>₱${(item.price * item.quantity).toFixed(2)}</td>
+                `;
+                receiptTable.appendChild(row);
+                totalAmount += item.price * item.quantity;
+            });
+
+            receiptTotal.textContent = `₱${totalAmount.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>

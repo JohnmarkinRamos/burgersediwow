@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="assets/images/burgericon.png" type="image/png">
+        
+    <!--====== Animate CSS ======-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+        
+    <!--====== Slick CSS ======-->
+    <link rel="stylesheet" href="assets/css/slick.css">
+        
+    <!--====== Line Icons CSS ======-->
+    <link rel="stylesheet" href="assets/css/LineIcons.css">
+        
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="assets/css/default.css">
+    
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('assets/images/background1.jpg') no-repeat center center/cover;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        .order-summary {
+            margin-top: 10px;
+        }
+        .order-summary div {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .total {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .btn {
+            width: 48%;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+        }
+        .order-btn {
+            background: #28a745;
+        }
+        .order-btn:hover {
+            background: #218838;
+        }
+        .cancel-btn {
+            background: #dc3545;
+        }
+        .cancel-btn:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Order Confirmation</h2>
+        <div class="order-summary" id="orderSummary"></div>
+        <div class="total">Total Cost: $<span id="totalCost">0.00</span></div>
+        <div class="btn-container">
+            <a href="order.html" class="btn order-btn">Confirm Order</a>
+            <a href="index.html" class="btn cancel-btn">Cancel</a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const orders = JSON.parse(localStorage.getItem("orderData")) || [];
+            let totalCost = 0;
+            const orderSummary = document.getElementById("orderSummary");
+            
+            if (orders.length === 0) {
+                orderSummary.innerHTML = "<p>No items ordered.</p>";
+            } else {
+                orders.forEach(order => {
+                    let itemTotal = order.quantity * order.price;
+                    totalCost += itemTotal;
+                    orderSummary.innerHTML += `<div><span>${order.name} (x${order.quantity})</span> <span>$${itemTotal.toFixed(2)}</span></div>`;
+                });
+            }
+            document.getElementById("totalCost").innerText = totalCost.toFixed(2);
+        });
+    </script>
+     <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+     <script src="assets/js/popper.min.js"></script>
+     <script src="assets/js/bootstrap.min.js"></script>
+     <script src="assets/js/slick.min.js"></script>
+     <script src="assets/js/jquery.easing.min.js"></script>
+     <script src="assets/js/scrolling-nav.js"></script>
+     <script src="assets/js/wow.min.js"></script>
+     <script src="assets/js/main.js"></script>
+</body>
+</html>

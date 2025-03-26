@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now</title>
+   
+      <!--====== Favicon Icon ======-->
+      <link rel="shortcut icon" href="assets/images/burgericon.png" type="image/png">
+        
+      <!--====== Animate CSS ======-->
+      <link rel="stylesheet" href="assets/css/animate.css">
+          
+      <!--====== Slick CSS ======-->
+      <link rel="stylesheet" href="assets/css/slick.css">
+          
+      <!--====== Line Icons CSS ======-->
+      <link rel="stylesheet" href="assets/css/LineIcons.css">
+          
+      <!--====== Bootstrap CSS ======-->
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+      
+      <!--====== Default CSS ======-->
+      <link rel="stylesheet" href="assets/css/default.css">
+      
+      <!--====== Style CSS ======-->
+      <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .choice-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .choice-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        .image-container {
+            height: 250px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="mb-4">What would you like to order?</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card choice-card" onclick="window.location.href='purchase.html'">
+                    <div class="image-container">
+                        <img src="assets/images/burger2.jpg" class="card-img-top" alt="Burgers">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Burgers</h3>
+                        <p class="card-text">Delicious burgers made fresh for you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card choice-card" onclick="window.location.href='drinks.html'">
+                    <div class="image-container">
+                        <img src="assets/images/drinks1.jpg" class="card-img-top" alt="Drinks">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Drinks</h3>
+                        <p class="card-text">Refreshing drinks to quench your thirst.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/scrolling-nav.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

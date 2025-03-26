@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/animate.css">
+        
+    <!--====== Slick CSS ======-->
+    <link rel="stylesheet" href="assets/css/slick.css">
+        
+    <!--====== Line Icons CSS ======-->
+    <link rel="stylesheet" href="assets/css/LineIcons.css">
+        
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="assets/css/default.css">
+    
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <section id="blog" class="about_area pt-120 pb-130 parallax-bg-blog">
+        <section class="container py-5">
+            <h2 class="text-center mb-4">Burger Blog</h2>
+            <div class="row">
+                <!-- Blog Post 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/blogburger1.jpg" class="card-img-top" alt="Burger Image">
+                        <div class="card-body">
+                            <h5 class="card-title">The Perfect Burger</h5>
+                            <p class="card-text">A guide to creating the perfect burger at home! Tips and tricks from our chef.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Blog Post 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/blogburger2 (3).jpg" class="card-img-top" alt="Burger Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Secret Ingredients</h5>
+                            <p class="card-text">Discover the secret ingredients that make our burgers the best in town!</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Blog Post 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/blogburger3 (3).jpg" class="card-img-top" alt="Burger Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Our Journey</h5>
+                            <p class="card-text">How Burger Haven became the favorite spot for burger lovers.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+<style>
+    /* Parallax effect for blog section */
+.parallax-bg-blog {
+    background: url('assets/images/background1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Overlay for better readability */
+.parallax-bg-blog::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Adjust darkness */
+}
+
+/* Make sure content appears above background */
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Smooth scrolling */
+html, body {
+    scroll-behavior: smooth;
+}
+
+</style>    
+  
+    <script>
+        // You can add any JS functionality you need here, like smooth scrolling or interactive features.
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("Burger Blog Loaded!");
+    });
+    
+    </script>
+    
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+        <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/slick.min.js"></script>
+        <script src="assets/js/jquery.easing.min.js"></script>
+        <script src="assets/js/scrolling-nav.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/main.js"></script>
+</body>
+</html>

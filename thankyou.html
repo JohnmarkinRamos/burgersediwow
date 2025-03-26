@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thankyou</title>
+    
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="assets/images/burgericon.png" type="image/png">
+        
+    <!--====== Animate CSS ======-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+        
+    <!--====== Slick CSS ======-->
+    <link rel="stylesheet" href="assets/css/slick.css">
+        
+    <!--====== Line Icons CSS ======-->
+    <link rel="stylesheet" href="assets/css/LineIcons.css">
+        
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="assets/css/default.css">
+    
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('assets/images/background1.jpg') no-repeat center center/cover;
+        }
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .message {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .total-amount {
+            font-size: 22px;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .delivery-time {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .home-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .home-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thank You for Your Order!</h2>
+        <p class="message">Your order has been placed successfully.</p>
+        <p class="delivery-time">Estimated Delivery Time: 11:03 - 11:40 <span id="deliveryTime"></span></p>
+        <a href="index.html" class="home-btn">Back to Home</a>
+    </div>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                total: params.get('total') || '0.00'
+            };
+        }
+        
+        function setOrderDetails() {
+            const { total } = getQueryParams();
+            document.getElementById('totalAmount').innerText = `$${total}`;
+            
+            const estimatedTime = new Date();
+            estimatedTime.setMinutes(estimatedTime.getMinutes() + Math.floor(Math.random() * 30) + 20);
+            document.getElementById('deliveryTime').innerText = estimatedTime.toLocaleTimeString();
+        }
+        
+        setOrderDetails();
+    </script>
+     <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+     <script src="assets/js/popper.min.js"></script>
+     <script src="assets/js/bootstrap.min.js"></script>
+     <script src="assets/js/slick.min.js"></script>
+     <script src="assets/js/jquery.easing.min.js"></script>
+     <script src="assets/js/scrolling-nav.js"></script>
+     <script src="assets/js/wow.min.js"></script>
+     <script src="assets/js/main.js"></script>
+</body>
+</html>
